@@ -19,11 +19,12 @@ body {
 }
 
 .header {
-    background: #23b849;
-    height: 2.6em;
+    background: #73B4D8;
+    height: 50px;
     position: relative;
     text-align: center;
     width: 100%;
+    border-bottom: 3px solid black;
 }
 
 .icon {
@@ -95,7 +96,8 @@ h5 {
     left: 0;
     position: absolute;
     right: 0;
-    top: 2.6em;
+    top: 53px;
+    height: 91.3%;
 }
 
 .page {
@@ -134,8 +136,8 @@ h5 {
 }
 
 .footer {
-    background: #22b447;
-    bottom: 0;
+    background: transparent;
+    bottom: 5px;
     position: absolute;
     text-align: center;
     width: 100%;
@@ -149,11 +151,22 @@ h5 {
 
 .nav > li {
     float: left;
-    width: 25%;
+    width: 12%;
+    height: 75px;
+    margin-bottom: 15px;
 }
 
+
+@media all and (max-width:750px){
+ .nav > li {
+    float: left;
+    width: 25%;
+    height: 75px;
+}   
+}
+
+
 .btn {
-    border: none;
     color: #fff;
     line-height: 2.6em;
     margin: 0;
@@ -161,28 +174,57 @@ h5 {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     text-align: center;
     width: 100%;
+    height: 75px;
+    outline:none;
+    width: 70px;
+    height: 70px;
+    border:3px solid grey;
+    border-radius: 50%;
 }
 
-.btn[data-is-active="true"], .btn-active {
-    font-weight: bold;
-    background-image: -webkit-radial-gradient(rgba(256, 256, 256, .3), rgba(0, 0, 0, 0));
-    background-image: -moz-radial-gradient(rgba(256, 256, 256, .3), rgba(0, 0, 0, 0));
-    background-image: -o-radial-gradient(rgba(256, 256, 256, .3), rgba(0, 0, 0, 0));
-    background-image: radial-gradient(rgba(256, 256, 256, .3), rgba(0, 0, 0, 0));
+input[type="button"]{outline:none;border:none;}
+
+.btn:before {
+  content: "Shoppings";
+  position: relative;
+  width: 120px;
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: rgba(15,15,15,.6);
+  color: white;
+  vertical-align: -118%;
+  
+  font-size: medium;
 }
 
-.btn[data-type="PILAS"] {
-    background-color: rgb(183, 23, 46);
+.btn[data-is-active="false"], .btn-active {
+    -webkit-filter: grayscale(100%);
+    filter: gray;
 }
 
-.btn[data-type="LATA"] {
-    background-color: rgb(127, 24, 89);
-}
 
-.btn[data-type="VIDRIO"] {
-    background-color: rgb(193, 146, 20);
-}
+.btn[data-type="MUSEO"] {background: url('../img/filtros_museos.png'); background-repeat: no-repeat;background-position: center;}
+.btn[data-type="MUSEO"]:before {content: "Museos";margin-left: -3px;}
 
-.btn[data-type="PLASTICO"] {
-    background-color: rgb(25, 59, 136);
-}
+.btn[data-type="PLAYA"] {background: url('../img/filtros_playas.png');background-repeat: no-repeat;background-position: center;}
+.btn[data-type="PLAYA"]:before {content: "Playas";margin-left: -2px;}
+
+.btn[data-type="OTROS"] {background: url('../img/filtros_otros.png');background-repeat: no-repeat;background-position: center;}
+.btn[data-type="OTROS"]:before {content: "Otros";margin-left: -2px;}
+
+.btn[data-type="PARQUES_Y_PLAZAS"] {background: url('../img/filtros_parques.png');background-repeat: no-repeat;background-position: center;}
+.btn[data-type="PARQUES_Y_PLAZAS"]:before {content: "Parques";margin-left: -5px;}
+
+.btn[data-type="ESPACIOS_DEPORTIVOS"] {background: url('../img/filtros_deportivos.png');background-repeat: no-repeat;background-position: center;}
+.btn[data-type="ESPACIOS_DEPORTIVOS"]:before {content: "Deporte";margin-left: -3px;}
+
+.btn[data-type="CENTROS_COMERCIALES"] {background: url('../img/filtros_comerciales.png');background-repeat: no-repeat;background-position: center;}
+.btn[data-type="CENTROS_COMERCIALES"]:before {content: "Shoppings";margin-left: -12px;}
+
+.btn[data-type="CENTROS_EDUCATIVOS"] {background: url('../img/filtros_educativos.png');background-repeat: no-repeat;background-position: center;}
+.btn[data-type="CENTROS_EDUCATIVOS"]:before {content: "Educación";margin-left: -12px;}
+
+
+.btn[data-type="TEATRO"] {background: url('../img/filtros_teatros.png');background-repeat: no-repeat;background-position: center;}
+.btn[data-type="TEATRO"]:before {content: "Teatros";margin-left: -1px;}

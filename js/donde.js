@@ -1,168 +1,143 @@
 /*!
- * donde.js 0.1
+ * donde.js 0.2
  * Copyright 2013 Agustin Diaz @hiroagustin
  * Released under the MIT license
  */
-;(function ()
-{
-  'use strict';
 
-  var default_options = {
-    idMap: 'map'
-  , zoom: 15
-  , defaultLocation: {
-      latitude: -34.8937720817105
-    , longitude: -56.1659574508667
-    }
-  };
 
-  var Donde = function Donde (options)
-  {
-    this.options = _.extend({}, default_options, options);
-    this.markers = this.options.markers;
 
-    return this;
-  };
+; (function () {
+    'use strict';
 
-  _.extend(Donde.prototype, {
 
-    createMap: function (container)
-    {
-      return new google.maps.Map(container, {
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      , streetViewControl: false
-      , mapTypeControl: false
-      , zoom: this.options.zoom
-      });
-    }
+    var default_options = {
+        idMap: 'map',
+        zoom: 15,
+        defaultLocation: {latitude: -34.8937720817105, longitude: -56.1659574508667}
+    },
+        Donde = function Donde(options) {
+            this.options = _.extend({}, default_options, options);
+            this.markers = this.options.markers;
+            return this;
+        };
 
-  , createMarker: function (marker)
-    {
-      marker = marker || {};
+    _.extend(Donde.prototype, {
 
-      return new google.maps.Marker({
-        icon: marker.icon
-      , map: this.map
-      , position: this.toLatLng(marker)
-      });
-    }
+        createMap: function (container) {
+          return new google.maps.Map(container, {
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false, 
+                mapTypeControl: false, 
+                zoom: this.options.zoom
+          });
+        },
+        //4 createMarker
+        createMarker: function (marker){
+            marker = marker || {};
 
-  , toLatLng: function (position)
-    {
-      return position instanceof google.maps.LatLng ? position : new google.maps.LatLng(position.latitude, position.longitude);
-    }
+            var mrkr = new google.maps.Marker({
+                icon: marker.icon,
+                map: this.map,
+                position: this.toLatLng(marker),
+                title: marker.titulo
+                
+            });
+            
+            var infWindow = new google.maps.InfoWindow();        
+            
+            google.maps.event.addListener(mrkr, 'click', function() {
+                infWindow.close();
+                infWindow.setContent(this.title);
+                infWindow.open(this.map, mrkr);
+            });
+            
+            google.maps.event.addListener(this.map, 'click', function () {infWindow.close(); });
 
-  , setInitialPosition: function (position)
-    {
-      position = this.toLatLng(position);
+            return mrkr;
+        },
+        toLatLng: function (position){
+          return position instanceof google.maps.LatLng ? position : new google.maps.LatLng(position.latitude, position.longitude);
+        },
+        setInitialPosition: function (position) {
+            position = this.toLatLng(position);
 
-      this.initialPosition = position;
-      
-      this.map.setCenter(position);
-      this.userLocationMarker.setPosition(position);
+            this.initialPosition = position;
 
-      return this;
-    }
+            this.map.setCenter(position);
+            this.userLocationMarker.setPosition(position);
+            return this;
+        }, 
+        handleInitialLocationError: function () {
+            this.setInitialPosition(this.options.defaultLocation);
+            this.options.errorMessage && alert(this.options.errorMessage);
+            console.log('Initial location not found.');
+            return this;
+        },
+        panToPosition: function (position) {position = this.toLatLng(position);this.map.panTo(position);return this; },
+        panToInitialPosition : function () {this.panToPosition(this.initialPosition);return this; },
+        //3 Add marker
+        addMarker: function (marker) {
+            if (!(marker.type in this.groups)) {
+                this.groups[marker.type] = {};
+            }
 
-  , handleInitialLocationError: function ()
-    {
-      this.setInitialPosition(this.options.defaultLocation);
-      this.options.errorMessage && alert(this.options.errorMessage);
+            if (!this.groups[marker.type].markers) {
+                this.groups[marker.type].markers = [];
+            }
 
-      console.log('Initial location not found.');
+            marker.icon = this.groups[marker.type].icon;
 
-      return this;
-    }
+            this.groups[marker.type].markers.push(
+                this.createMarker(marker)
+            );
 
-  , panToPosition: function (position)
-    {
-      position = this.toLatLng(position);
-
-      this.map.panTo(position);
-
-      return this;
-    }
-
-  , panToInitialPosition
-  : function ()
-    {
-      this.panToPosition(this.initialPosition);
-
-      return this;
-    }
-
-  , addMarker: function (marker)
-    {
-      if (!(marker.type in this.groups))
-      {
-        this.groups[marker.type] = {};
-      }
-
-      if (!this.groups[marker.type].markers)
-      {
-        this.groups[marker.type].markers = [];
-      }
-
-      marker.icon = this.groups[marker.type].icon;
-
-      this.groups[marker.type].markers.push(
-        this.createMarker(marker)
-      );
-
-      return this;
-    }
-
-  , getUserPosition: function ()
-    {
-      var self = this;
-
-      navigator.geolocation.getCurrentPosition(
-        function (position)
+            return this;
+        }, 
+        getUserPosition: function ()
         {
-          self.setInitialPosition(position.coords);
-        }
-      , function ()
+            var self = this;
+
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    self.setInitialPosition(position.coords);
+                }, 
+                function (){
+                    self.handleInitialLocationError(arguments);
+                }, 
+                {
+                    enableHighAccuracy: true, 
+                    timeout: 8000
+                }
+            );
+            return this;
+        }, 
+        //2 mapAttributes
+        mapAttributes: function (item)
         {
-          self.handleInitialLocationError(arguments);
-        }
-      , {
-          enableHighAccuracy: true
-        , timeout: 8000
-        }
-      );
-
-      return this;
-    }
-
-  , mapAttributes: function (item)
-    {
-      if (this.options.mapping)
-      {
-        _.each(this.options.mapping, function (map, key)
+            if (this.options.mapping){
+                _.each(this.options.mapping, function (map, key){
+                item[key] = map(item);
+                });
+            }
+            return item;
+        }, 
+        //1 addMarkers
+        addMarkers: function ()
         {
-          item[key] = map(item);
-        });
-      }
+            var self = this;
 
-      return item;
-    }
+            if (!this.markers)
+            {
+                console.log('No markers found.');
+            }
+                   
+            _.each(this.markers, function (item)
+            {
+                self.addMarker(self.mapAttributes(item));
+            });
 
-  , addMarkers: function ()
-    {
-      var self = this;
-
-      if (!this.markers)
-      {
-        console.log('No markers found.');
-      }
-
-      _.each(this.markers, function (item)
-      {
-        self.addMarker(self.mapAttributes(item));
-      });
-
-      return this;
-    }
+            return this;
+        }
 
   , createIcons: function ()
     {
@@ -213,8 +188,6 @@
 
       });
     }
-
-
   , toggleType: function (type)
     {
       var group = this.groups[type];
@@ -266,10 +239,13 @@
       if (document.getElementById(this.options.idMap))
       {
         this.map = this.createMap(document.getElementById(this.options.idMap));
-
+        this.infoWindow = new google.maps.InfoWindow();
+          
         this.userLocationMarker = this.createMarker();
-        this.userLocationMarker.setClickable(false);
-
+        this.userLocationMarker.setClickable(true);
+        this.userLocationMarker.icon = this.options.myLocationImgUrl;
+        this.userLocationMarker.title = 'Este eres tu!';
+          
         this.groups = {};
 
         if ('geolocation' in navigator)
@@ -299,6 +275,6 @@
 
   });
 
-  window.Donde = Donde;
+    window.Donde = Donde;
 
 }());
