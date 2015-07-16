@@ -1,16 +1,22 @@
 # De nuestra página de Info:
 ***
-## Ayuda
-Utiliza los botones ubicados en la parte inferior para filtrar tu búsqueda, pincha en los lugares para ver su detalle.
+## ¿Cómo utilizo la herramienta?
+Utiliza los botones ubicados en la parte inferior para filtrar tu búsqueda. Por defecto tendrás todos los lugares accesibles de la capital, quita los filtros para reducir tu búsqueda.
 
-## Montevideo Accesible
-Para cada lugar encontraras su nivel de accesibilidad.
 
-## Datos de montevideo accesible?
-Más información muy pronto...
+## ¿Qué tipo de lugares puedo encontrar en el mapa?
+Centros deportivos, Centros educativos, Centros comerciales, Teatros, Museos, Playas, Plazas y parques, entre otros.
 
-## Para reportar accesibilidad de algun lugar
-Más información muy pronto...
+## ¿De donde provienen los datos utilizados para el desarrollo de esta aplicación?
+
+Para el desarrollo de esta aplicación se utilizan los datos abiertos que se disponen en el catálogo de datos publicado por el estado.
+
+## ¿Cómo puedo contribuir con la aplicación?
+
+Puedes enviar un lugar accesible que no esté en el mapa para que posteriormente pueda incorporarse.
+Para reportar un nuevo lugar puedes acceder [aquí](http://accesibilidad.montevideo.gub.uy/contacto)
+
+
 
 Un proyecto de: [Montevideo Inteligente](http://www.montevideointeligente.uy)
 
@@ -18,7 +24,6 @@ Desarrollado por: [Santiago Respane](https://twitter.com/lagartoSan)
 
 Forked from: [Agustin Kryger](https://twitter.com/agustinkry) y [Agustin Diaz](https://twitter.com/hiroagustin)
 
-Usas Unity? Bajate la [Webapp](http://unityshell.wordpress.com/2013/05/24/donde-reciclo-tiene-su-webapp/) - por [Pablo Capeluto](https://twitter.com/UnityShell)
 
 ***
 Conocé también: [DondeRetiro](http://donderetiro.uy/) y [DondeReciclo](http://dondereciclo.uy/)

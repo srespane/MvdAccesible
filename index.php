@@ -54,13 +54,22 @@
             <h3>¿Qué tipo de lugares puedo encontrar en el mapa?</h3>
             <p>Centros deportivos, Centros educativos, Centros comerciales, Teatros, Museos, Playas, Plazas y parques, entre otros.</p>
         </article>
+                <article>
+            <h3>¿De donde provienen los datos utilizados para el desarrollo de esta aplicación?</h3>
+            <p>Para el desarrollo de esta aplicación se utilizan los datos abiertos que se disponen en el catálogo de datos publicado por el estado.</p>
+        </article>
+                <article>
+            <h3>¿Cómo puedo contribuir con la aplicación?</h3>
+            <p>Puedes enviar un lugar accesible que no esté en el mapa para que posteriormente pueda incorporarse.
+Para reportar un nuevo lugar puedes acceder <a href="http://accesibilidad.montevideo.gub.uy/contacto" target="_blank">aquí</a> </p>
+        </article>
+        
         <article>
             <h3>
                 Un proyecto de: 
-                <a target="_blank" href="http://www.montevideointeligente.uy/">
-                    <img class="logo-data" src="img/logo_MVD.png" alt="Datos Abiertos, Transparencia y Acceso a la información." width="75px" height="33px">
-                </a>
+                    <img class="logo-data" src="http://www.beta.montevideointeligente.uy/wp-content/uploads/2015/07/Logo_230_x_130-01.png" width="95px" height="53px">
             </h3>
+            <p>Sitio web: <a target="_blank" href="http://www.montevideointeligente.uy" >www.montevideointeligente.uy</a></p>
             <p>
                 Desarrollado por: <a href="mailto:santiago@montevideointeligente.uy">Santiago Respane</a> y <a href="mailto:maximiliano@montevideointeligente.uy">Maximiliano Alfonsín</a>
             </p>
@@ -72,7 +81,7 @@
             </p>
         </article>
         <article>
-            <h4>Conocé también: <a href="http://donderetiro.uy">DondeRetiro</a> y <a href="http://dondereciclo.com.uy">DondeReciclo</a></h4>
+            <h4>Conocé también: <a target="_blank" href="http://donderetiro.uy">DondeRetiro</a> y <a target="_blank" href="http://dondereciclo.com.uy">DondeReciclo</a></h4>
         </article>
     </section>
     <footer class="footer">
