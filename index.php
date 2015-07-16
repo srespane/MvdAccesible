@@ -46,29 +46,33 @@
         </noscript>
     </div>
     <section id="info" class="page page-info">
+                <article>
+   
+            <p>Mediante esta aplicación se podrá consultar la característica de aquellos lugares identificados como accesibles, desde el punto de vista de accesibilidad física, visual, auditiva o comunicacional, facilitando así el desplazamiento en la ciudad de aquellos ciudadanos con algún tipo de limitación.</p>
+        </article>
         <article>
-            <h2>Cómo utilizo la herramienta?</h2>
+            <h4>Cómo utilizo la herramienta?</h4>
             <p>Utiliza los botones ubicados en la parte inferior para filtrar tu búsqueda. Por defecto tendrás todos los lugares accesibles de la capital, quita los filtros para reducir tu búsqueda.</p>
         </article>
         <article>
-            <h3>¿Qué tipo de lugares puedo encontrar en el mapa?</h3>
+            <h4>¿Qué tipo de lugares puedo encontrar en el mapa?</h4>
             <p>Centros deportivos, Centros educativos, Centros comerciales, Teatros, Museos, Playas, Plazas y parques, entre otros.</p>
         </article>
                 <article>
-            <h3>¿De donde provienen los datos utilizados para el desarrollo de esta aplicación?</h3>
+            <h4>¿De donde provienen los datos utilizados para el desarrollo de esta aplicación?</h4>
             <p>Para el desarrollo de esta aplicación se utilizan los datos abiertos que se disponen en el catálogo de datos publicado por el estado.</p>
         </article>
                 <article>
-            <h3>¿Cómo puedo contribuir con la aplicación?</h3>
+            <h4>¿Cómo puedo contribuir con la aplicación?</h4>
             <p>Puedes enviar un lugar accesible que no esté en el mapa para que posteriormente pueda incorporarse.
 Para reportar un nuevo lugar puedes acceder <a href="http://accesibilidad.montevideo.gub.uy/contacto" target="_blank">aquí</a> </p>
         </article>
         
         <article>
-            <h3>
+            <h4>
                 Un proyecto de: 
                     <img class="logo-data" src="http://www.beta.montevideointeligente.uy/wp-content/uploads/2015/07/Logo_230_x_130-01.png" width="95px" height="53px">
-            </h3>
+            </h4>
             <p>Sitio web: <a target="_blank" href="http://www.montevideointeligente.uy" >www.montevideointeligente.uy</a></p>
             <p>
                 Desarrollado por: <a href="mailto:santiago@montevideointeligente.uy">Santiago Respane</a> y <a href="mailto:maximiliano@montevideointeligente.uy">Maximiliano Alfonsín</a>

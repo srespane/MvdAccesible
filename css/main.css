@@ -73,7 +73,7 @@ h1 {
     font-size: 1.5em;
     line-height: 1.8em;
     margin: 0;
-    text-shadow: 1px 1px 1px #0a8a25;
+    text-shadow: 1px 1px 1px #515C54;
 }
 
 h2, h3, h4 {
@@ -118,7 +118,7 @@ h5 {
 }
 
 .page article {
-    border-top: 1px solid #5e5e5e;
+    /*border-top: 1px solid #5e5e5e;*/
 }
 
 .page article:first-child {
