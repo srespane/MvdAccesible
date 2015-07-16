@@ -4,12 +4,15 @@
 Utiliza los botones ubicados en la parte inferior para filtrar tu búsqueda, pincha en los lugares para ver su detalle.
 
 ## Montevideo Accesible
-
 Para cada lugar encontraras su nivel de accesibilidad.
-
 
 ## Datos de montevideo accesible?
 Más información muy pronto...
+
+## Para reportar accesibilidad de algun lugar
+Más información muy pronto...
+
+Un proyecto de: [Montevideo Inteligente](http://www.montevideointeligente.uy)
 
 Desarrollado por: [Santiago Respane](https://twitter.com/lagartoSan)
 

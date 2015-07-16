@@ -3,14 +3,13 @@
 
 # TEAM
 
+    Santiago Respane -- Developer -- @lagartoSan
+	Maximiliano Alfonsín -- Designer -- 
+
+# FORKED FROM
+
     Agustin Diaz -- Developer -- @hiroagustin
     Agustin Kryger -- Designer -- @agustinkry
-
-# THANKS
-
-    Chino -- @danielcarranza
-    Gaba -- @gaba
-    Pablo -- @UnityShell
 
 # TECHNOLOGY COLOPHON
 

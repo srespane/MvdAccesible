@@ -3,7 +3,7 @@
 <!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>MvdAccesible</title>
+    <title>Accede Fácil</title>
     <meta name="description" content="Applicacion web dedicada a señalizar los puntos de reciclaje en Montevideo, Uruguay">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -24,7 +24,7 @@
     <!-- For iOS web apps -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="DondeReciclo">
+    <meta name="apple-mobile-web-app-title" content="AccedeFacil">
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
@@ -35,7 +35,7 @@
         <button id="pan-to-initial" class="icon icon-initial">
             <img src="img/btn-current-position.png" alt="Volver" width="16px" height="20px">
         </button>
-        <h1>MvdAccesible</h1>
+        <h1>Accede Fácil</h1>
         <button id="toggle-page-info" class="icon icon-info">
             <i>i</i>
         </button>
@@ -47,49 +47,32 @@
     </div>
     <section id="info" class="page page-info">
         <article>
-            <h2>Ayuda</h2>
-            <p>Utiliza los botones ubicados en la parte inferior para filtrar tu búsqueda.</p>
+            <h2>Cómo utilizo la herramienta?</h2>
+            <p>Utiliza los botones ubicados en la parte inferior para filtrar tu búsqueda. Por defecto tendrás todos los lugares accesibles de la capital, quita los filtros para reducir tu búsqueda.</p>
         </article>
         <article>
-            <h3>¿Qué puedo tirar en cada contenedor?</h3>
-            <ul class="unstyled">
-                <li>
-                    <h5>Vidrio</h5>
-                    <p>De cualquier color, en la medida de lo posible libre de tapas, corchos y etiquetas.</p>
-                </li>
-                <li>
-                    <h5>Plástico</h5>
-                    <p>Todo tipo de plástico, en la medida de lo posible libre de etiquetas y sin tapas. Los envases de comida (bolsas de leche, potes de yogur, etc.) o contenedores del líquidos (detergente, alcohol, etc.) deberán ser previamente limpiados.</p>
-                </li>
-                <li>
-                    <h5>Pilas</h5>
-                    <p>Las de gran tamaño pueden no caber en los contenedores en la calle, se recomienda llevarlas a depósitos en supermercados.</p>
-                </li>
-                <li>
-                    <h5>Metal</h5>
-                    <p>Los contenedores están diseñados para objetos del tamaño de una lata aproximadamente, objetos más grandes pueden ofrecerse a recicladores ya que es un material de alto valor. No se deben tirar como metal equipos electrónicos.</p>
-                </li>
-            </ul>
+            <h3>¿Qué tipo de lugares puedo encontrar en el mapa?</h3>
+            <p>Centros deportivos, Centros educativos, Centros comerciales, Teatros, Museos, Playas, Plazas y parques, entre otros.</p>
         </article>
         <article>
             <h3>
                 Un proyecto de: 
-                <a href="http://www.e-cerebrum.com/">
-                    <img class="logo-data" src="img/DATA.png" alt="Datos Abiertos, Transparencia y Acceso a la información." width="75px" height="33px">
+                <a target="_blank" href="http://www.montevideointeligente.uy/">
+                    <img class="logo-data" src="img/logo_MVD.png" alt="Datos Abiertos, Transparencia y Acceso a la información." width="75px" height="33px">
                 </a>
             </h3>
             <p>
-                Por: <a href="mailto:agustinkryger@gmail.com">Agustin Kryger</a> y <a href="mailto:hiroagustin@gmail.com">Agustin Diaz</a>
+                Desarrollado por: <a href="mailto:santiago@montevideointeligente.uy">Santiago Respane</a> y <a href="mailto:maximiliano@montevideointeligente.uy">Maximiliano Alfonsín</a>
             </p>
             <p>
-                Usas Unity? Bajate la <a href="http://unityshell.wordpress.com/2013/05/24/donde-reciclo-tiene-su-webapp/">Webapp</a> - por <a href="http://unityshell.wordpress.com/">Pablo Capeluto</a>
+                Forked from: <a target="_blank" href="https://github.com/HiroAgustin/DondeReciclo">Donde Reciclo</a>
             </p>
             <p>
-                Código disponible en <a href="https://github.com/HiroAgustin/DondeReciclo">Github</a>
+                Código disponible en <a target="_blank" href="https://github.com/srespane/mvdAccesible">Github</a>
             </p>
         </article>
         <article>
-            <h4>Conocé también: <a href="http://donderetiro.uy">DondeRetiro</a></h4>
+            <h4>Conocé también: <a href="http://donderetiro.uy">DondeRetiro</a> y <a href="http://dondereciclo.com.uy">DondeReciclo</a></h4>
         </article>
     </section>
     <footer class="footer">
@@ -100,7 +83,7 @@
             <li>
                 <button class="btn" data-type="MUSEO" data-is-active="true"></button>
             </li>
-            <li>
+            <li >
                 <button class="btn" data-type="CENTROS_COMERCIALES" data-is-active="true"></button>
             </li>
             <li>
@@ -161,10 +144,8 @@
                     return item.properties.TITULO;
                 }
             },
-            myLocationImgUrl:'http://localhost/MvdAccess-master/img/btn-current-position.png'
+            myLocationImgUrl:'img/btn-current-position.png'
         });
-        
-
 
         app.init();
         app.listen(document.getElementById('controls'));
