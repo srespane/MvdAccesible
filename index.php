@@ -3,7 +3,7 @@
 <!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>Accede Fácil</title>
+    <title>Accede fácil</title>
     <meta name="description" content="Applicacion web dedicada a señalizar los puntos de reciclaje en Montevideo, Uruguay">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
@@ -28,6 +28,9 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="icons/fuenteAccedeFacil/accedeFacilIcons.css">
+    
     <script src="js/modernizr-2.2.6.min.js"></script>
 </head>
 <body>
@@ -35,7 +38,7 @@
         <button id="pan-to-initial" class="icon icon-initial">
             <img src="img/btn-current-position.png" alt="Volver" width="16px" height="20px">
         </button>
-        <h1>Accede Fácil</h1>
+        <h1>Accede fácil</h1>
         <button id="toggle-page-info" class="icon icon-info">
             <i>i</i>
         </button>
@@ -46,8 +49,7 @@
         </noscript>
     </div>
     <section id="info" class="page page-info">
-                <article>
-   
+        <article>
             <p>Mediante esta aplicación se podrá consultar la característica de aquellos lugares identificados como accesibles, desde el punto de vista de accesibilidad física, visual, auditiva o comunicacional, facilitando así el desplazamiento en la ciudad de aquellos ciudadanos con algún tipo de limitación.</p>
         </article>
         <article>
@@ -58,11 +60,11 @@
             <h4>¿Qué tipo de lugares puedo encontrar en el mapa?</h4>
             <p>Centros deportivos, Centros educativos, Centros comerciales, Teatros, Museos, Playas, Plazas y parques, entre otros.</p>
         </article>
-                <article>
+        <article>
             <h4>¿De donde provienen los datos utilizados para el desarrollo de esta aplicación?</h4>
             <p>Para el desarrollo de esta aplicación se utilizan los datos abiertos que se disponen en el catálogo de datos publicado por el estado.</p>
         </article>
-                <article>
+        <article>
             <h4>¿Cómo puedo contribuir con la aplicación?</h4>
             <p>Puedes enviar un lugar accesible que no esté en el mapa para que posteriormente pueda incorporarse.
 Para reportar un nuevo lugar puedes acceder <a href="http://accesibilidad.montevideo.gub.uy/contacto" target="_blank">aquí</a> </p>
@@ -155,7 +157,29 @@ Para reportar un nuevo lugar puedes acceder <a href="http://accesibilidad.montev
                 },
                 titulo: function (item) {
                     return item.properties.TITULO;
+                },
+                direccion: function (item) {
+                    return item.properties.DIRECCION;
+                },
+                tel: function (item) {
+                    return item.properties.TELEFONO;
+                },
+                paginaWeb: function (item) {
+                    return item.properties.PAGINA_WEB;
+                },
+                rampa: function (item) {
+                    return item.properties.RAMPA;
+                },
+                ascensor: function (item) {
+                    return item.properties.ASCENSOR;
+                },
+                banios: function (item) {
+                    return item.properties.BANIOS;
+                },
+                accesibilidadVisual: function (item) {
+                    return item.properties.ACCESIBILIDAD_VISUAL;
                 }
+                
             },
             myLocationImgUrl:'img/btn-current-position.png'
         });

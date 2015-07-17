@@ -6,6 +6,8 @@
 ;(function () {
     'use strict';
 
+    var infWindow = new google.maps.InfoWindow();    
+    
     var default_options = {
         idMap: 'map',
         zoom: 15,
@@ -29,22 +31,50 @@
         },
         //4 createMarker
         createMarker: function (marker){
+            var esTuPosicion = false;
+            if(!marker){esTuPosicion= true;}
             marker = marker || {};
 
             var mrkr = new google.maps.Marker({
                 icon: marker.icon,
                 map: this.map,
                 position: this.toLatLng(marker),
-                title: marker.titulo
-                
+                title: marker.titulo,
+                direccion: marker.direccion,
+                tel: marker.tel,
+                paginaWeb: marker.paginaWeb,
+                rampa: marker.rampa,
+                banios: marker.banios,
+                ascensor: marker.ascensor,
+                accesibilidadVisual: marker.rampa
             });
             
-            var infWindow = new google.maps.InfoWindow();        
+                
             
             google.maps.event.addListener(mrkr, 'click', function() {
-                infWindow.close();
-                infWindow.setContent(this.title);
-                infWindow.open(this.map, mrkr);
+                if (esTuPosicion){
+                    var vContent = '<div style="display: inline-block; overflow: auto; max-height: 563px; max-width: 654px;">	<div class="gm-iw gm-sm"><div class="gm-title">' + this.title + '</div></div>';
+                    infWindow.setContent(vContent);
+                    infWindow.open(this.map, mrkr);
+                }else {
+                    var vContent = '<div style="display: inline-block; overflow: auto; max-height: 563px; max-width: 654px;">	<div class="gm-iw gm-sm"><div class="gm-title">' + this.title + '</div><div class="gm-basicinfo"><div class="gm-addr">' + this.direccion + '</div><div class="gm-website"><a target="_blank" href="'+ this.paginaWeb + '">Sitio web</a> / '+ this.tel + '</div><div class="gm-addr">';
+                    //RAMPA
+                    vContent = vContent + '<span title="Rampa" class="fa-stack fa-lg"><i class="fa icon-rampa fa-stack-2x ';
+                    vContent = this.rampa ==='NO'? vContent + 'accessNO"></i></span>' : vContent +'accessYES"></i></span>';
+                    //BAÑOS
+                    vContent = vContent + '<span title="Baños" class="fa-stack fa-lg"><i class="fa icon-banos fa-stack-2x ';
+                    vContent = this.banios ==='NO'? vContent + 'accessNO"></i></span>' : vContent +'accessYES"></i></span>';
+                    //ASCENSOR
+                    vContent = vContent + '<span title="Ascensor" class="fa-stack fa-lg"><i class="fa icon-ascensor fa-stack-2x ';
+                    vContent = this.ascensor ==='NO'? vContent + 'accessNO"></i></span>' : vContent +'accessYES"></i></span>';
+                    //ACCESIBILIDAD VISUAL
+                    vContent = vContent + '<span title="Accesibilidad visual" class="fa-stack fa-lg"><i class="fa icon-visual fa-stack-2x '; 
+                    vContent = this.accesibilidadVisual ==='NO'? vContent + 'accessNO"></i></span>' : vContent +'accessYES"></i></span>';
+
+                    vContent = vContent + '</div></div></div></div>';
+                    infWindow.setContent(vContent);
+                    infWindow.open(this.map, mrkr);
+                }
             });
             
             google.maps.event.addListener(this.map, 'click', function () {infWindow.close(); });
@@ -174,6 +204,7 @@
         listen: function (container) {
             var self = this;
             container.addEventListener('click', function (e) {
+                infWindow.close();
                 self.toggleType(e.target.dataset.type);
                 e.target.dataset.isActive = e.target.dataset.isActive === 'true' ? 'false' : 'true';
             }, false);
@@ -194,13 +225,14 @@
         init: function () {
             if (document.getElementById(this.options.idMap)) {
                 this.map = this.createMap(document.getElementById(this.options.idMap));
-                this.infoWindow = new google.maps.InfoWindow();
           
                 this.userLocationMarker = this.createMarker();
                 this.userLocationMarker.setClickable(true);
                 this.userLocationMarker.icon = this.options.myLocationImgUrl;
-                this.userLocationMarker.title = 'Este eres tu!';
-
+                this.userLocationMarker.title = 'Estás acá';
+                
+                
+                this.map.setCenter(this.toLatLng(this.options.defaultLocation).coords);
                 this.groups = {};
 
                 if ('geolocation' in navigator) {
@@ -220,7 +252,6 @@
 
             return this;
         }
-
     });
 
     window.Donde = Donde;
