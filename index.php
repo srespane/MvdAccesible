@@ -141,7 +141,7 @@ Para reportar un nuevo lugar puedes acceder <a href="http://accesibilidad.montev
                 PARQUES_Y_PLAZAS:'img/lugares_filtros-parques.png',
                 TEATRO:'img/lugares_filtros-teatros.png',
                 CENTROS_COMERCIALES:'img/lugares_filtros-comerciales.png',
-                CENTROS_EDUCATIVOS:'img/lugares_filtros-deportivos.png',
+                CENTROS_EDUCATIVOS:'img/lugares_filtros-educativos.png',
                 OTROS: 'img/lugares_filtros-otros.png',
             }, 
             mapping: {
