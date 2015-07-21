@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Accede fácil</title>
-    <meta name="description" content="Applicacion web dedicada a señalizar los puntos de reciclaje en Montevideo, Uruguay">
+    <meta name="description" content="Applicacion web dedicada a señalizar los puntos accesibles de Montevideo, Uruguay">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1">
